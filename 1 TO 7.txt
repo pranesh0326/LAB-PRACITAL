@@ -1,0 +1,420 @@
+
+
+PGM1 LAMDA EXPRESSION
+AIM
+
+To write a program to use Lambda Expression.
+
+ALGORITHM
+
+STEP 1 : Start the process.
+STEP 2 : Import the Scanner package.
+STEP 3 : Create a class named LambdaDemo2.
+STEP 4 : Get a number from the user by creating a Scanner object.
+STEP 6 : Use a Lambda expression to check whether the given number is odd or even.
+STEP 5 : Use another Lambda expression to check whether the given number is negative or positive.
+STEP 6 : Print the result using the println function.
+ STEP 7 : End the process.
+
+public class Lamda {
+interface FuncInter1
+{
+int operation(int a, int b);
+}
+
+private int operate(int a, int b, FuncInter1 fobj)
+{
+return fobj.operation(a, b);
+}
+
+public static void main(String args[])
+{
+FuncInter1 add = (int x, int y) -&gt; x + y;
+FuncInter1 multiply = (int x, int y) -&gt; x * y;
+Lamda L=new Lamda();
+System.out.println(&quot;Addition is &quot; + L.operate(6, 3, add));
+System.out.println(&quot;Multiplication is &quot; +L.operate(6, 3, multiply));
+
+}
+}
+
+
+PGM2 Linked List
+
+AIM
+
+To write a program using the LinkedList class.
+
+ALGORITHM
+
+STEP 1 : Start the process.
+STEP 2 : Import the Scanner package.
+STEP 3 : Create a class named LinkedListDemo.
+STEP 4 : Get the number of elements in the list from the user by creating a Scanner object. STEP 6 : Create a LinkedList and using for loop get the elements of the list from the user. STEP 5 : Add elements to the list and print the contents of the list using the println function. STEP 6 : Remove elements from the list and print the contents of the list after deletion.
+STEP 7 : End the process.
+
+import java.util.LinkedList;
+class Main {
+public static void main(String[] args) {
+LinkedList&lt;String&gt; languages = new LinkedList&lt;&gt;();
+// add elements in LinkedList
+languages.add(&quot;Java&quot;);
+languages.add(&quot;SE&quot;);
+languages.add(&quot;DAA&quot;);
+languages.add(&quot;DM&quot;);
+System.out.println(&quot;LinkedList: &quot; + languages);
+// remove elements from index 1
+String str = languages.remove(1);
+System.out.println(&quot;Removed Element: &quot; + str);
+System.out.println(&quot;Updated LinkedList: &quot; +
+languages);
+}
+}
+
+PGM3 COLLECTIONS (Reduce and Filter methods of stream package
+)
+
+AIM
+
+To write a program to use ﬁlter and reduce methods of stream package.
+
+
+ALGORITHM
+
+STEP 1 : Start the process.
+STEP 2 : Import the optional,arraylist and stream packages. STEP 3 : Create a class named STDemo.
+STEP 4 : Create a list and add elements using the add() method.
+STEP 6 : Use the filter method of stream package to filter a specific element from the list.
+STEP 5 : Use the reduce method of stream package to find the sum of all the elements of the list.
+STEP 6 : Print the result using the println function. 
+STEP 7 : End the process.
+
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Collection {
+
+public static void main(String[] args) {
+
+List&lt;Integer&gt; roll = new ArrayList&lt;&gt;();
+List&lt;String&gt; Fruit = Arrays.asList(&quot;Java&quot;,&quot;Functional Testing&quot;, &quot;Performace Testing&quot;, &quot;Selenium
+Testing&quot;, &quot;Mongo DB&quot;);
+List&lt;String&gt; name=new ArrayList&lt;&gt;();
+//Adding Products
+roll.add(1);
+roll.add(2);
+roll.add(3);
+roll.add(4);
+
+System.out.println(roll);
+System.out.println(Fruit);
+int sum= roll.stream().reduce (0,(a,b)-&gt;a+b);
+List&lt;Integer&gt; filtered = roll.stream().filter(number -&gt; number &gt;2).collect(Collectors.toList());
+
+name= Fruit.stream().filter(ele -&gt; ele.contains(&quot;Testing&quot;)).collect(Collectors.toList());
+
+System.out.println(sum);
+System.out.println(filtered);
+System.out.println(name);
+}
+}
+
+
+PGM 4 SERVER AND CLIENT
+
+
+AIM
+
+To write a program for two-way TCP communication for server and client. 
+
+ALGORITHM
+
+STEP 1 : Start the process.
+STEP 2 : Import the java.net package.
+STEP 3 : Create a class named Serprg for the server and Clnprg for the client.
+STEP 4 : Create a Serversocket and connect it to the client socket.
+STEP 5 : Create a PrintStream and BufferedReader to send message to the client and to read message from the client.
+STEP 6 : Create a DataOutputStream and BufferedReader to send message to the server and to read message from the server
+STEP 7 : Using while loop, read the message and print it. 
+STEP 8 : End the process.
+
+
+    Server
+import java.io.*;
+import java.net.*;
+
+/**
+ *
+ * @author hp
+ */
+public class server {
+  public static void main(String args[]) throws Exception
+{
+ServerSocket ss = new ServerSocket(888);
+Socket s = ss.accept(); // connect it to client socket
+System.out.println("Connection established");
+PrintStream ps = new PrintStream(s.getOutputStream()); // to send data to the client
+BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream())); // to read data coming from the client
+BufferedReader kb = new BufferedReader(new InputStreamReader(System.in));
+// to read data from the keyboard
+while (true) {
+String str, str1;
+while ((str = br.readLine()) != null) {
+System.out.println(str);
+str1 = kb.readLine();
+ps.println(str1);
+}
+ps.close();
+br.close();
+kb.close();
+ss.close();
+s.close();
+// terminate application
+System.exit(0);
+} // end of while
+}
+  
+}
+     Client
+
+import java.io.*;
+import java.net.*;
+
+
+public class client {
+    public static void main(String args[]) throws Exception
+{
+Socket s = new Socket("localhost", 888);
+DataOutputStream dos = new DataOutputStream(s.getOutputStream());//send data to server
+BufferedReader br= new BufferedReader(new
+InputStreamReader(s.getInputStream()));//read data from server
+BufferedReader kb = new BufferedReader(new InputStreamReader(System.in));//readdata from keyboard
+String str, str1;
+while (!(str = kb.readLine()).equals("exit")) {// repeat as long is not typed at client
+dos.writeBytes(str + "\n");//send to server
+str1 = br.readLine();//read
+System.out.println(str1);
+}
+dos.close();// close connection.
+br.close();
+kb.close();
+s.close();
+}
+
+}
+
+
+PGM 5 MOUSE LISTENER
+
+Program 5
+Ex no:05 
+Date:29/11/2021 
+MOUSE LISTENER 
+AIM: 
+To write a program to use labels, buttons and mouseClick() method. ALGORITHM: 
+Step 1: Start the program. 
+Step 2: Declare label ,frame, panel . 
+Step 3: Define the function for mouse listener. 
+Step 4: Display the labels. 
+Step 5:Display the x and y coordinates when mouse is clicked. Step 6: Stop the process. 
+PROGRAM: 
+import java.awt.*; 
+import java.awt.event.*; 
+import javax.swing.*; 
+public class Mouse 
+{ 
+JFrame F; 
+JLabel lbl; 
+JLabel stlbl; 
+JPanel pnl; 
+public Mouse() 
+{ 
+appear(); 
+} 
+public static void main(String[] args) 
+{ 
+Mouse Mouse=new Mouse(); 
+Mouse.mlistener(); 
+} 
+void appear() 
+{ 
+F=new JFrame("Mouse Listener"); 
+F.setSize(400,400); 
+F.setLayout(new GridLayout(3,1)); 
+lbl=new JLabel("",JLabel.CENTER); 
+stlbl=new JLabel("",JLabel.CENTER); 
+stlbl.setSize(350,900); 
+pnl=new JPanel(); 
+pnl.setLayout(new FlowLayout()); 
+F.add(lbl);
+F.add(pnl); 
+F.add(stlbl); 
+F.setVisible(true); 
+} 
+void mlistener() 
+{ 
+lbl.setText("Listener in action:MouseListener"); JPanel p=new JPanel(); 
+p.setBackground(Color.magenta); 
+p.setLayout(new FlowLayout()); 
+p.addMouseListener(new CustomMouseListener()); JLabel msglabel=new JLabel("",JLabel.CENTER); p.add(msglabel); 
+msglabel.addMouseListener(new CustomMouseListener()); p.add(msglabel); 
+pnl.add(p); 
+F.setVisible(true); 
+} 
+class CustomMouseListener implements MouseListener { 
+public void mouseClicked(MouseEvent e) 
+{ 
+stlbl.setText("Mouse Clicked:("+ e.getX()+","+e.getY()+")"); } 
+public void mousePressed(MouseEvent e) 
+{ 
+} 
+public void mouseReleased(MouseEvent e) 
+{ 
+} 
+public void mouseEntered(MouseEvent e) 
+{ 
+} 
+public void mouseExited(MouseEvent e) 
+{ 
+} 
+} 
+} 
+
+
+
+
+RESULT: 
+This program is completed and executed successfully.
+
+
+PGM 6 JMENU AND JMENU ITEMS
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+public class P6 {
+JFrame myFrame = null;
+public static void main(String[] args)
+{
+(new P6()).test();
+}
+void test() {
+myFrame = new JFrame(&quot;Menu Listener Test&quot;);
+myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+myFrame.setBounds(50,50,250,150); myFrame.setContentPane(new JDesktopPane());
+JMenuBar myMenuBar = new JMenuBar(); JMenu myMenu =
+
+getSemesterMenu(); myMenuBar.add(myMenu);
+
+myMenu = getTheoryMenu(); myMenuBar.add(myMenu); myMenu =
+
+getLabMenu(); myMenuBar.add(myMenu);
+
+MyMenuItem myItem = new MyMenuItem(&quot;Close&quot;);
+
+myMenuBar.add(myItem);
+
+myFrame.setJMenuBar(myMenuBar); myFrame.setVisible(true);
+}
+private JMenu getSemesterMenu() {
+JMenu myMenu = new JMenu(&quot;Semester&quot;); MyMenuItem myItem =
+
+new MyMenuItem(&quot;Theory&quot;); myMenu.add(myItem);
+
+myItem = new MyMenuItem(&quot;Lab&quot;); myMenu.add(myItem);
+
+myMenu.addSeparator();
+
+myItem = new MyMenuItem(&quot;Exit&quot;); myMenu.add(myItem);
+return myMenu;
+}
+private JMenu getTheoryMenu() {
+JMenu myMenu = new JMenu(&quot;Theory&quot;); JMenuItem myItem = new
+
+MyMenuItem(&quot;AJP&quot;); myMenu.add(myItem);
+
+myItem = new MyMenuItem(&quot;DAA&quot;); myMenu.add(myItem);
+myItem = new MyMenuItem(&quot;SE&quot;); myMenu.add(myItem);
+return myMenu;
+}
+private JMenu getLabMenu() {
+JMenu myMenu = new JMenu(&quot;Lab&quot;);
+JMenuItem myItem = new MyMenuItem(&quot;AJP Lab&quot;);
+
+myMenu.add(myItem);
+
+myItem = new MyMenuItem(&quot;SE Lab&quot;); myMenu.add(myItem);
+return myMenu;
+}
+private class MyMenuItem extends JMenuItem implements
+
+ActionListener {
+
+public MyMenuItem(String text) { super(text);
+
+addActionListener(this);
+}
+public void actionPerformed(ActionEvent e) {
+System.out.println(&quot;Item clicked: &quot;+e.getActionCommand());
+
+}
+}
+}
+
+
+PGM 7 CREATION AND IIMPLEMENTATION OF BEANS
+
+
+student1.java :
+
+public class student1{
+public static void main(String args[])
+{
+student s = new student();
+s.setReg(62);
+System.out.println(&quot;Register number : &quot; +s.getReg());
+s.setName(&quot;Harry&quot;);
+System.out.println(&quot;Name : &quot; +s.getName());
+s.setGrade(&quot;A&quot;);
+System.out.println(&quot;Grade : &quot; + s.getGrade());
+}
+}
+
+student.java :
+public class student implements java.io.Serializable
+{
+private int Reg;
+private String
+Name; private
+String Grade;
+public student()
+{
+}
+public void setReg(int reg)
+{
+this.Reg=reg;
+}
+public int getReg()
+{
+return Reg;
+}
+public void setName(String a)
+{
+this.Name=a;
+}
+public String getName()
+{
+return Name;
+}
+public void setGrade(String grade)
+{
+this.Grade=grade;
+}
+public String getGrade()
+{
+return Grade;
+}
+}
+

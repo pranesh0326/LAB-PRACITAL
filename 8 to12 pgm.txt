@@ -1,0 +1,232 @@
+PROGRAM – 8 : 
+Aim: The aim is to create a JDBC application using a JDBC driver to establish a connection with a database and perform database operations.
+
+Algorithm:
+1. Import JDBC Libraries
+2. Load JDBC Driver
+3. Establish Database Connection
+4. Create SQL Statements
+5. Execute SQL Queries
+6. Process Results
+7. Close Resources
+8. Handle Exceptions
+9. Implement Application Logic
+10. Test and Debug
+11. Deploy the Application
+
+OUTPUT : 
+
+RESULT : 
+The above program is executed and the required output is obtained.
+PROGRAM – 9 : 
+Aim: Create a servlet application that utilizes cookies and sessions to manage user data and interactions.
+
+Algorithm:
+1. Import Servlet Libraries
+2. Create Servlet Classes
+3. Handle HTTP Requests
+4. Use Cookies to Store User Data
+5. Implement Sessions for User State
+6. Retrieve and Update Data in Sessions
+7. Manage Session Timeout
+8. Implement Logic for User Interactions
+9. Test and Debug the Servlet Application
+10. Deploy the Application on a Servlet Container.
+
+FirstServlet : 
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.Cookie; 
+import jakarta.servlet.http.HttpServlet; 
+import jakarta.servlet.http.HttpServletRequest;  
+import jakarta.servlet.http.HttpServletResponse;  
+import java.io.IOException; 
+import java.io.PrintWriter; 
+public class FirstServlet extends HttpServlet { 
+public void doPost(HttpServletRequest request, HttpServletResponse response){ try{ 
+response.setContentType("text/html"); PrintWriter out = response.getWriter(); String n=request.getParameter("userName"); out.print("Welcome "+n); 
+Cookie ck=new Cookie("uname",n);//creating cookie object response.addCookie(ck);//adding  cookie in the response 
+//creating submit button 
+out.print("<form action='SecondServlet'>"); out.print("<input type='submit' value='go'>");  out.print("</form>"); 
+out.close(); 
+}catch(Exception e){System.out.println(e);} 
+} 
+} 
+SecondServlet : 
+import jakarta.servlet.ServletException;  
+import jakarta.servlet.annotation.WebServlet;  
+import jakarta.servlet.http.Cookie; 
+import jakarta.servlet.http.HttpServlet; 
+import jakarta.servlet.http.HttpServletRequest; 
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException; 
+import java.io.PrintWriter; 
+public class SecondServlet extends HttpServlet { 
+public void doGet(HttpServletRequest request, HttpServletResponse response){ try{ 
+response.setContentType("text/html"); PrintWriter out = response.getWriter(); Cookie ck[]=request.getCookies(); out.print("Hello "+ck[0].getValue()); out.close(); 
+}catch(Exception e){System.out.println(e);} 
+} 
+} 
+Index : 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+<form action="FirstServlet" method="post"> Name:<input type="text"  name="userName"/><br/> 
+<input type="submit" value="go"/> 
+</form> 
+</body> 
+</html>
+OUTPUT : 
+
+
+
+RESULT : 
+The above program is executed and the required output is obtained.
+PROGRAM - 10 : 
+
+
+INDEX : 
+<html> 
+ <head> 
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <title>Using Forms</title> 
+ </head> 
+ <body> 
+ <h1>Using Forms</h1> 
+ <form name="myForm" action="display.jsp" method="POST">  <table border="0"> 
+  
+ <tbody> 
+ <tr> 
+ <td>First Name: </td> 
+ <td><input type="text" name="first" value="" size="50" /></td>  </tr> 
+ <tr> 
+ <td>Last Name: </td> 
+ <td><input type="text" name="last" value="" size="50" /></td>  </tr> 
+ <tr> 
+ <td>Email Address: </td> 
+ <td><input type="text" name="email" value="" size="50" /></td>  </tr> 
+ <tr> 
+ <td>Gender: </td> 
+ <td><select name="gender"> 
+ <option>Male</option> 
+ <option>Female</option> 
+ </select></td>
+ </tr> 
+ <tr> 
+ <td>Date of Birth</td> 
+ <td><input type="text" name="dob" value="DD/MM/YYYY" size="15"  /></td> 
+ </tr> 
+ </tbody> 
+ </table> 
+  
+ <input type="reset" value="CLEAR" name="CLEAR" /> 
+ <input type="submit" value="SUBMIT" name="SUBMIT" />  </form> 
+ </body> 
+</html> 
+DISPLAY : 
+<html> 
+ <head> 
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <title>Using Forms</title> 
+ </head> 
+ <body> 
+ <h1>Using Forms</h1> 
+ <% 
+ String firstName = request.getParameter("first"); 
+ String lastName = request.getParameter("last"); 
+ String emailAddress = request.getParameter("email"); 
+ String gender = request.getParameter("gender"); 
+ String dob = request.getParameter("dob"); 
+ %> 
+ <table border="1"> 
+ 
+ <tbody> 
+ <tr> 
+ <td>First Name: </td>  <td><%=firstName %></td>  </tr> 
+ <tr> 
+ <td>Last Name: </td>  <td><%=lastName %></td>  </tr> 
+ <tr> 
+ <td>Email Address: </td>  <td><%=emailAddress %></td>  </tr> 
+ <tr> 
+ <td>Gender: </td> 
+ <td><%=gender %></td>  </tr> 
+ <tr> 
+ <td>Date of Birth: </td>  <td><%=dob %></td>  </tr> 
+ </tbody> 
+ </table> 
+ </body> 
+</html>
+OUTPUT : 
+
+RESULT : 
+The above program is executed and the required output is obtained.
+PROGRAM – 11 : 
+MyTagHandler: 
+import java.util.Calendar; 
+import jakarta.servlet.jsp.JspException; import jakarta.servlet.jsp.JspWriter; 
+import jakarta.servlet.jsp.tagext.TagSupport; public class MyTagHandler extends  TagSupport{ 
+public int doStartTag() throws JspException { 
+JspWriter out=pageContext.getOut();//returns the instance of JspWriter try{ 
+out.print(Calendar.getInstance().getTime());//printing date and time using JspWriter }catch(Exception e){System.out.println(e);} 
+return SKIP_BODY;//will not evaluate the body content of the tag 
+} 
+} 
+Index: 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF 8"%> 
+<%@ taglib uri="WEB-INF/mytags.tld" prefix="m" %> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8"> 
+<title>Insert title here</title> 
+</head> 
+<body> 
+Current Date and Time is: <m:today/> 
+</body> 
+</html>
+Mytags : 
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE taglib 
+PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"  "http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd"> 
+<taglib> 
+<tlib-version>1.0</tlib-version> 
+<jsp-version>1.2</jsp-version> 
+<short-name>simple</short-name> 
+<uri>http://tomcat.apache.org/example-taglib</uri> 
+<tag> 
+<name>today</name> 
+<tag-class>com.Prg11.MyTagHandler</tag-class> 
+</tag> 
+</taglib>
+OUTPUT : 
+
+RESULT : 
+The above program is executed and the required output is obtained.
+PROGRAM – 12 : 
+HelloWorld : 
+public class HelloWorld { 
+private String message; 
+public void setMessage(String message){ this.message = message; } 
+public void getMessage(){ 
+System.out.println("Your Message : " + message); 
+} 
+} 
+Bean: 
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns = "http://www.springframework.org/schema/beans" xmlns:xsi =  "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation =  "http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> <bean id = "helloWorld" class = "com.Prg12_1.HelloWorld"> 
+<property name = "message" value = "Hello World!"/> 
+</bean> 
+</beans> 
+MainApp ; 
+import org.springframework.context.ApplicationContext; 
+import org.springframework.context.support.ClassPathXmlApplicationContext; public class MainApp { 
+public static void main(String[] args) {  
+ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml"); HelloWorld obj = (HelloWorld) context.getBean("helloWorld");  obj.getMessage();  
+} }
+OUTPUT : 
+
+RESULT : 
+The above program is executed and the required output is obtained.

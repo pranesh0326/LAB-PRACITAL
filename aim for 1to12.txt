@@ -1,0 +1,175 @@
+Ex.No. 1	Lambda Expression
+
+Date: 	
+
+
+
+
+
+
+AIM
+
+To write a program to use Lambda Expression.
+
+ALGORITHM
+
+STEP 1 : Start the process.
+STEP 2 : Import the Scanner package.
+STEP 3 : Create a class named LambdaDemo2.
+STEP 4 : Get a number from the user by creating a Scanner object.
+STEP 6 : Use a Lambda expression to check whether the given number is odd or even.
+STEP 5 : Use another Lambda expression to check whether the given number is negative or positive.
+STEP 6 : Print the result using the println function.
+ STEP 7 : End the process.
+
+LinkedList Class
+AIM
+
+To write a program using the LinkedList class.
+
+ALGORITHM
+
+STEP 1 : Start the process.
+STEP 2 : Import the Scanner package.
+STEP 3 : Create a class named LinkedListDemo.
+STEP 4 : Get the number of elements in the list from the user by creating a Scanner object. STEP 6 : Create a LinkedList and using for loop get the elements of the list from the user. STEP 5 : Add elements to the list and print the contents of the list using the println function. STEP 6 : Remove elements from the list and print the contents of the list after deletion.
+STEP 7 : End the process.
+
+Reduce and Filter methods of stream package
+
+
+
+
+AIM
+
+To write a program to use ﬁlter and reduce methods of stream package.
+
+
+ALGORITHM
+
+STEP 1 : Start the process.
+STEP 2 : Import the optional,arraylist and stream packages. STEP 3 : Create a class named STDemo.
+STEP 4 : Create a list and add elements using the add() method.
+STEP 6 : Use the filter method of stream package to filter a specific element from the list.
+STEP 5 : Use the reduce method of stream package to find the sum of all the elements of the list.
+STEP 6 : Print the result using the println function. 
+STEP 7 : End the process.
+
+
+
+TCP communication
+
+
+AIM
+
+To write a program for two-way TCP communication for server and client. 
+
+ALGORITHM
+
+STEP 1 : Start the process.
+STEP 2 : Import the java.net package.
+STEP 3 : Create a class named Serprg for the server and Clnprg for the client.
+STEP 4 : Create a Serversocket and connect it to the client socket.
+STEP 5 : Create a PrintStream and BufferedReader to send message to the client and to read message from the client.
+STEP 6 : Create a DataOutputStream and BufferedReader to send message to the server and to read message from the server
+STEP 7 : Using while loop, read the message and print it. 
+STEP 8 : End the process.
+
+8TH
+Aim: The aim is to create a JDBC application using a JDBC driver to establish a connection with a database and perform database operations.
+
+Algorithm:
+1. Import JDBC Libraries
+2. Load JDBC Driver
+3. Establish Database Connection
+4. Create SQL Statements
+5. Execute SQL Queries
+6. Process Results
+7. Close Resources
+8. Handle Exceptions
+9. Implement Application Logic
+10. Test and Debug
+11. Deploy the Application
+
+
+
+9th
+Aim: Create a servlet application that utilizes cookies and sessions to manage user data and interactions.
+
+Algorithm:
+1. Import Servlet Libraries
+2. Create Servlet Classes
+3. Handle HTTP Requests
+4. Use Cookies to Store User Data
+5. Implement Sessions for User State
+6. Retrieve and Update Data in Sessions
+7. Manage Session Timeout
+8. Implement Logic for User Interactions
+9. Test and Debug the Servlet Application
+10. Deploy the Application on a Servlet Container.
+
+
+
+10
+Aim: Create a web form using JSP tags for user input and interaction in a web application.
+
+Algorithm:
+1. Create a JSP File
+2. Define the HTML Form
+3. Use JSP Tags to Include Dynamic Data
+4. Define Form Fields with Appropriate JSP Tags (e.g., `<input>`, `<select>`, `<textarea>`)
+5. Set Default Values for Form Fields
+6. Handle Form Submission
+7. Use JSP Tags to Process Form Data
+8. Validate and Sanitize User Input
+9. Display Validation Messages
+10. Display or Store Submitted Data
+11. Test and Debug the JSP Form
+12. Deploy the Web Application.
+
+
+11
+
+Aim: To enhance code modularity, reusability, and maintainability in a web application using JSP custom tags.
+
+Algorithms:
+
+1. Define Custom Tags: Create custom tags to encapsulate specific functionality.
+
+2. Tag Library Descriptor (TLD): Define tag attributes and behavior in the TLD file.
+
+3. Tag Usage: Embed custom tags in JSP pages using the custom tag library URI.
+
+4. Implement Tag Handlers: Write Java classes for custom tag handlers, managing tag processing and output.
+
+5. Configure in web.xml: Declare tag libraries in the web.xml deployment descriptor.
+
+6. Compile and Deploy: Compile custom tags and JSP pages. Deploy the web app to the server.
+
+7. Utilize Custom Tags: Use custom tags in JSP pages to streamline complex operations, enhancing code structure and reusability.
+
+12
+
+Aim: To develop a Spring application for building robust and scalable Java-based web or enterprise applications.
+
+Algorithms:
+
+1. Setup Spring Environment: Configure your development environment with the necessary Spring libraries and tools.
+
+2. Define Beans: Create Java classes to define Spring beans, representing application components.
+
+3. Configure Dependency Injection: Use XML or Java-based configuration to wire beans together using dependency injection.
+
+4. Implement Business Logic: Develop the core functionality of your application within Spring-managed beans.
+
+5. Create Controllers: If it's a web application, create Spring MVC controllers to handle HTTP requests.
+
+6. Configure Spring Context: Set up the Spring application context to manage beans and application configuration.
+
+7. Test and Debug: Thoroughly test and debug your Spring application.
+
+8. Deploy: Deploy the Spring application to a web server or container.
+
+9. Monitor and Maintain: Continuously monitor, maintain, and enhance your Spring application for reliability and performance.
+
+Building a Spring application simplifies the development of Java-based projects, promoting modularity and scalability.
